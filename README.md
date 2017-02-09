@@ -1,6 +1,6 @@
 # The best view on campus
 
-This project aims to showcase some of most beautiful, iconic places on campus. We want to capture 360 degree photos & video of 5-7 locations on campus and display them in an interactive page on our website. 
+This project aims to showcase some of most beautiful, iconic, strange and interesting places on campus. We want to capture 360 degree photos & video of 5-7 locations on campus and display them in an interactive page on our website. 
 
 Each view will include a short decsription and an easy-to-use viewer that allows users to pan & zoom the images (think Google Street View).
 
