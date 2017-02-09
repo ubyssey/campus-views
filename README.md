@@ -8,15 +8,15 @@ Ideally this would also include a small minimap that shows where each location i
 
 ## Project phases
 
-1. **Find some places on campus!** Make a list of spots on campus that you think are awesome. Once we have a bunch, we'll pick our favourites.
+1. [**Find some places on campus!**](https://github.com/ubyssey/campus-views/issues/1) Make a list of spots on campus that you think are awesome. Once we have a bunch, we'll pick our favourites.
 
-2. **Take photos of each location.** We're going to recruit members of The Ubyssey's photo/video team to help us out with this part. 
+2. [**Take photos of each location.**](https://github.com/ubyssey/campus-views/issues/2) We're going to recruit members of The Ubyssey's photo/video team to help us out with this part. 
 
-3. **Build an interface for viewing 360 degree photos and video.** 
+3. [**Build an interface for viewing 360 degree photos and video.**](https://github.com/ubyssey/campus-views/issues/3)
 
-4. **Build a minimap feature that can be used for each location.**
+4. [**Build a minimap feature that can be used for each location.**](https://github.com/ubyssey/campus-views/issues/4)
 
-5. **Combine all locations into a single page.**
+5. [**Combine all locations into a single page.**](https://github.com/ubyssey/campus-views/issues/5)
 
 ## Examples
 
