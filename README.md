@@ -16,7 +16,7 @@ Ideally this would also include a small minimap that shows where each location i
 
 4. **Build a minimap feature that can be used for each location.**
 
-5. **Use steps 3 and 4 to create a view for each location. Then, combine the locations into a single page.**
+5. **Combine all locations into a single page.**
 
 ## Examples
 
