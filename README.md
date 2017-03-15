@@ -25,3 +25,5 @@ Here are some examples to give you an idea of what we're aiming for:
 - [Facebook 360 Photos](https://facebook360.fb.com/360-photos/) - We could maybe even use Facebook's embeddable 360 viewer to accomplish phase 3!
 
 - [New York Times - The Daily 360](https://www.nytimes.com/video/the-daily-360)
+
+- How to use the Google VR API: https://developers.google.com/vr/concepts/vrview-web
