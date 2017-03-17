@@ -2,22 +2,8 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="//storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
-<script>
-  //Opens the Pictures page
-  $(document).ready(function(){
-      $("#Pictures").hide();
-      $("#vrview").hide();
-      $("#OpenContent").click(function(){
-          $(this).hide();
-      });
-      $("#OpenContent").on('click', function() {
-        $("#Pictures").show();
-        $("#vrview").show();
-      })
-  });
+<script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
 
-</script>
 </head>
 <body>
 
@@ -31,23 +17,45 @@
 <div class = "PicturePage">
   <div id="Pictures">
     Pictures go here
-    <iframe class="framebox inherit-locale " style="width: calc(100% + 40px); height: 347px;" src="Marine_Drive.jpg" id="autoSize-0">&lt;p&gt;[This section requires a browser that supports JavaScript and iframes.]&lt;/p&gt;</iframe>
+    <div id="vrview"></div>
   </div>
-
-  <!-- //Attempting to place VR image here
-  <script>
-    window.addEventListener('load', onVrViewLoad)
-    function onVrViewLoad() {
-      var vrView = new VRView.Player('#vrview', {
-        image: 'Marine_Drive.jpg',
-        width: '1000',
-        height: '1000'
-      });
-  }
-  </script> -->
-
-  <div id="vrview"> vrView </div>
 </div>
+
+<script>
+
+  var vrView;
+  function set_body_height() { // set body height = window height
+    $('body').height($(window).height());
+  }
+
+  window.addEventListener('load', onVrViewLoad)
+  function onVrViewLoad() {
+    vrView = new VRView.Player('#vrview', {
+      image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/marine-drive-2.jpg',
+      is_stero: false
+    });
+  }
+
+  $(document).ready(function(){
+
+    console.log('ready');
+
+    $(window).bind('resize', set_body_height);
+    set_body_height();
+      $("#Pictures").hide();
+      $("#vrview").hide();
+      $("#OpenContent").click(function(){
+          $(this).hide();
+      });
+      $("#OpenContent").on('click', function() {
+        $("#Pictures").show();
+        $("#vrview").show();
+        //onVrViewLoad();
+      })
+
+  });
+
+</script>
 
 </body>
 </html>
