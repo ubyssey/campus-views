@@ -26,4 +26,4 @@ Here are some examples to give you an idea of what we're aiming for:
 
 - [New York Times - The Daily 360](https://www.nytimes.com/video/the-daily-360)
 
-- [How to use the Google VR API] (https://developers.google.com/vr/concepts/vrview-web)
+- [How to use Google's VR API](https://developers.google.com/vr/concepts/vrview-web)
