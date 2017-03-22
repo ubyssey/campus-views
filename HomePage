@@ -55,6 +55,7 @@
 <script>
 //Google VR API script to swap out photos
 var vrView;
+var browserHeight = $(window).height();
 // All the scenes for the experience
 var scenes = {
   marineDrive: {
@@ -68,7 +69,7 @@ var scenes = {
 function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
-    height: '100%',
+    height: browserHeight,
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Marine_Drive.jpg',
     is_stereo: false,
     is_autopan_off: true
