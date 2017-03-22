@@ -17,21 +17,34 @@
 <div class = "PicturePage">
   <div id="Pictures">
     Pictures go here
-    <div id="vrview"></div>
+    <div id="vrview">
+      <ul class="carousel">
+        <li>
+          <a href="#mosquitoFeild">
+            <small>Mosquito Feild</small>
+          </a>
+        </li>
+        <li>
+          <a href="#marineDrive">
+            <small>Marine Drive</small>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<script>
 
+<script>
+//JQuery script to make things look cool and control the different pages
   var vrView;
   function set_body_height() { // set body height = window height
     $('body').height($(window).height());
   }
-
   window.addEventListener('load', onVrViewLoad)
   function onVrViewLoad() {
-    vrView = new VRView.Player('#vrview', {
-      image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/marine-drive-2.jpg',
+    vrView = new VRView.Player('#VrView', {
+      image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg',
       is_stero: false
     });
   }
@@ -43,18 +56,97 @@
     $(window).bind('resize', set_body_height);
     set_body_height();
       $("#Pictures").hide();
-      $("#vrview").hide();
+      $("#VrView").hide();
+      $("#VrView2").hide();
+      $("#SwitchImage").hide();
       $("#OpenContent").click(function(){
           $(this).hide();
       });
       $("#OpenContent").on('click', function() {
         $("#Pictures").show();
-        $("#vrview").show();
-        //onVrViewLoad();
+        $("#VrView").show();
+        $("#SwitchImage").show();
       })
 
   });
+</script>
 
+
+<script>
+//Google VR API script to swap out photos
+var vrView;
+// All the scenes for the experience
+var scenes = {
+  mosquitoFeild: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg',
+  },
+  marineDrive: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Marine_Drive.jpg',
+  },
+};
+
+function onLoad() {
+  vrView = new VRView.Player('#vrview', {
+    width: '100%',
+    height: 480,
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Marine_Drive.jpg',
+    is_stereo: false,
+    is_autopan_off: true
+  });
+
+  vrView.on('ready', onVRViewReady);
+  vrView.on('modechange', onModeChange);
+  vrView.on('error', onVRViewError);
+}
+
+function loadScene(id) {
+  console.log('loadScene', id);
+
+  // Set the image
+  vrView.setContent({
+    image: scenes[id].image,
+    preview: scenes[id].preview,
+    is_autopan_off: true
+  });
+
+  // Unhighlight carousel items
+  var carouselLinks = document.querySelectorAll('ul.carousel li a');
+  for (var i = 0; i < carouselLinks.length; i++) {
+    carouselLinks[i].classList.remove('current');
+  }
+
+  // Highlight current carousel item
+  document.querySelector('ul.carousel li a[href="#' + id + '"]')
+      .classList.add('current');
+}
+
+function onVRViewReady(e) {
+  console.log('onVRViewReady');
+
+  // Create the carousel links
+  var carouselItems = document.querySelectorAll('ul.carousel li a');
+  for (var i = 0; i < carouselItems.length; i++) {
+    var item = carouselItems[i];
+    item.disabled = false;
+
+    item.addEventListener('click', function(event) {
+      event.preventDefault();
+      loadScene(event.target.parentNode.getAttribute('href').substring(1));
+    });
+  }
+
+  loadScene('mosquitoFeild');
+}
+
+function onModeChange(e) {
+  console.log('onModeChange', e.mode);
+}
+
+function onVRViewError(e) {
+  console.log('Error! %s', e.message);
+}
+
+window.addEventListener('load', onLoad);
 </script>
 
 </body>
