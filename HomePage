@@ -34,61 +34,41 @@
   </div>
 </div>
 
-
 <script>
-//JQuery script to make things look cool and control the different pages
-  var vrView;
-  function set_body_height() { // set body height = window height
-    $('body').height($(window).height());
-  }
-  window.addEventListener('load', onVrViewLoad)
-  function onVrViewLoad() {
-    vrView = new VRView.Player('#VrView', {
-      image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg',
-      is_stero: false
-    });
-  }
-
   $(document).ready(function(){
 
     console.log('ready');
 
-    $(window).bind('resize', set_body_height);
-    set_body_height();
       $("#Pictures").hide();
-      $("#VrView").hide();
-      $("#VrView2").hide();
+      $("#vrview").hide();
       $("#SwitchImage").hide();
       $("#OpenContent").click(function(){
           $(this).hide();
       });
       $("#OpenContent").on('click', function() {
         $("#Pictures").show();
-        $("#VrView").show();
-        $("#SwitchImage").show();
+        $("#vrview").show();
       })
-
   });
 </script>
-
 
 <script>
 //Google VR API script to swap out photos
 var vrView;
 // All the scenes for the experience
 var scenes = {
-  mosquitoFeild: {
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg',
-  },
   marineDrive: {
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Marine_Drive.jpg',
+  },
+  mosquitoFeild: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg',
   },
 };
 
 function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
-    height: 480,
+    height: '100%',
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Marine_Drive.jpg',
     is_stereo: false,
     is_autopan_off: true
@@ -134,8 +114,7 @@ function onVRViewReady(e) {
       loadScene(event.target.parentNode.getAttribute('href').substring(1));
     });
   }
-
-  loadScene('mosquitoFeild');
+  loadScene('marineDrive');
 }
 
 function onModeChange(e) {
