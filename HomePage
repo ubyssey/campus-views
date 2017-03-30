@@ -3,30 +3,32 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 
 <div class="Home">
   <div id="OpenContent">
-    Views of UBC
-    Click to Explore
+    <p>
+    <center> Views of UBC <br/>
+    Click to Explore </center>
+    <p>
   </div>
 </div>
 
 <div class = "PicturePage">
   <div id="Pictures">
-    Pictures go here
-    <div id="vrview">
+    <div id="vrview"> </div>
+    <div class = "Gallery">
       <ul class="carousel">
         <li>
           <a href="#mosquitoFeild">
-            <small>Mosquito Feild</small>
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg" style="width:100px;height:100px;">
           </a>
         </li>
         <li>
           <a href="#marineDrive">
-            <small>Marine Drive</small>
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg" style="width:100px;height:100px;">
           </a>
         </li>
       </ul>
@@ -34,21 +36,39 @@
   </div>
 </div>
 
+<style>
+  body {
+    background-color: darkslategray;
+    color: whitesmoke;
+  }
+  .Gallery ul{
+    display: inline-flex;
+    /*This is to remove the text decorations beucase I cant figure out how to properly*/
+    color: darkslategray;
+  }
+  ul.carousel {
+    margin: 0;
+  }
+
+</style>
+
+
 <script>
   $(document).ready(function(){
 
     console.log('ready');
-
+      $("#OpenContent").css('margin-top', $(window).height() / 2);
+      $("#OpenContent").hide();
+      $("#OpenContent").fadeIn(1500);
       $("#Pictures").hide();
       $("#vrview").hide();
       $("#SwitchImage").hide();
       $("#OpenContent").click(function(){
-          $(this).hide();
+          $(this).fadeOut(2000);
+          $("#Pictures").fadeIn(2000);
+          $("#vrview").fadeIn(2000);
       });
-      $("#OpenContent").on('click', function() {
-        $("#Pictures").show();
-        $("#vrview").show();
-      })
+
   });
 </script>
 
@@ -59,7 +79,7 @@ var browserHeight = $(window).height();
 // All the scenes for the experience
 var scenes = {
   marineDrive: {
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Marine_Drive.jpg',
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg',
   },
   mosquitoFeild: {
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg',
@@ -70,7 +90,7 @@ function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
     height: browserHeight,
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Marine_Drive.jpg',
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg',
     is_stereo: false,
     is_autopan_off: true
   });
