@@ -7,19 +7,9 @@
 </head>
 <body>
 
-<div class="Home">
-  <div id="OpenContent">
-    <p>
-    <center> Views of UBC <br/>
-    Click to Explore </center>
-    <p>
-  </div>
-</div>
-
-<div class = "PicturePage">
   <div id="Pictures">
     <div id="vrview"> </div>
-    <div class = "Gallery">
+    <div class="Gallery">
       <ul class="carousel">
         <li>
           <a href="#mosquitoFeild">
@@ -34,20 +24,44 @@
       </ul>
     </div>
   </div>
-</div>
 
 <style>
+  html, body {
+    height: 100%;
+  }
+
   body {
-    background-color: darkslategray;
+    background-color: dimgray;
     color: whitesmoke;
-  }
-  .Gallery ul{
-    display: inline-flex;
-    /*This is to remove the text decorations beucase I cant figure out how to properly*/
-    color: darkslategray;
-  }
-  ul.carousel {
     margin: 0;
+  }
+
+  .Gallery ul {
+    display: inline-flex;
+  }
+
+  .carousel {
+    flex-direction: row;
+  }
+
+  ul.carousel {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul img {
+    display: block;
+  }
+
+  #Pictures {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #vrview {
+    flex: 1;
   }
 
 </style>
@@ -56,18 +70,18 @@
 <script>
   $(document).ready(function(){
 
-    console.log('ready');
-      $("#OpenContent").css('margin-top', $(window).height() / 2);
-      $("#OpenContent").hide();
-      $("#OpenContent").fadeIn(1500);
-      $("#Pictures").hide();
-      $("#vrview").hide();
-      $("#SwitchImage").hide();
-      $("#OpenContent").click(function(){
-          $(this).fadeOut(2000);
-          $("#Pictures").fadeIn(2000);
-          $("#vrview").fadeIn(2000);
-      });
+    // console.log('ready');
+    //   $("#OpenContent").css('margin-top', $(window).height() / 2);
+    //   $("#OpenContent").hide();
+    //   $("#OpenContent").fadeIn(1500);
+    //   $("#Pictures").hide();
+    //   $("#vrview").hide();
+    //   $("#SwitchImage").hide();
+    //   $("#OpenContent").click(function(){
+    //       $(this).fadeOut(2000);
+    //       $("#Pictures").fadeIn(2000);
+    //       $("#vrview").fadeIn(2000);
+    //   });
 
   });
 </script>
@@ -89,7 +103,7 @@ var scenes = {
 function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
-    height: browserHeight,
+    height: '100%',
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg',
     is_stereo: false,
     is_autopan_off: true
