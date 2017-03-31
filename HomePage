@@ -12,16 +12,24 @@
     <div class="Gallery">
       <ul class="carousel">
         <li>
-          <a href="#mosquitoFeild">
-          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg" style="width:100px;height:100px;">
+          <a href="#marineDrive">
+          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MARINE%20DRIVE%20THUMBNAIL.png?raw=true" 
+          style="width:100px;height:100px;">
           </a>
         </li>
         <li>
-          <a href="#marineDrive">
-          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg" style="width:100px;height:100px;">
+          <a href="#mosquitoField">
+          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOSQ%20FIELD%20THUMBNAIL.png?raw=true" 
+          style="width:100px;height:100px;">
           </a>
         </li>
-      </ul>
+          <li>
+          <a href="#MOA">
+          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOA%20GALLERY%20THUMBNAIL.png?raw=true" 
+          style="width:100px;height:100px;">
+          </a>
+        </li>
+        </ul>
     </div>
   </div>
 
@@ -95,9 +103,12 @@ var scenes = {
   marineDrive: {
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg',
   },
-  mosquitoFeild: {
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Feild.jpg',
+  mosquitoField: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Field.jpg',
   },
+  MOA: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOA.jpg',
+  }
 };
 
 function onLoad() {
