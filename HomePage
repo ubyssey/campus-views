@@ -11,23 +11,26 @@
     <div id="vrview"> </div>
     <div class="Gallery">
       <ul class="carousel">
-        <li>
-          <a href="#marineDrive">
+        <li class="tooltip">
+       <a href="#marineDrive">
           <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MARINE%20DRIVE%20THUMBNAIL.png?raw=true" 
           style="width:100px;height:100px;">
           </a>
+          <span class="tooltiptext"> Marine Drive </span>
         </li>
-        <li>
+        <li class="tooltip">
           <a href="#mosquitoField">
           <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOSQ%20FIELD%20THUMBNAIL.png?raw=true" 
           style="width:100px;height:100px;">
           </a>
+          <span class="tooltiptext"> Mosquito Field </span>
         </li>
-          <li>
+          <li class="tooltip">
           <a href="#MOA">
           <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOA%20GALLERY%20THUMBNAIL.png?raw=true" 
           style="width:100px;height:100px;">
           </a>
+          <span class="tooltiptext"> Museum of Anthropology </span>  
         </li>
         </ul>
     </div>
@@ -36,6 +39,7 @@
 <style>
   html, body {
     height: 100%;
+
   }
 
   body {
@@ -43,6 +47,11 @@
     color: whitesmoke;
     margin: 0;
   }
+
+/* change font of every element */
+   * {
+      font-family: courier;
+    }
 
   .Gallery ul {
     display: inline-flex;
@@ -72,6 +81,35 @@
     flex: 1;
   }
 
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 </style>
 
 
