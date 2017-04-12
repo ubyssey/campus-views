@@ -13,24 +13,24 @@
       <ul class="carousel">
         <li class="tooltip">
        <a href="#marineDrive">
-          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MARINE%20DRIVE%20THUMBNAIL.png?raw=true" 
+          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MARINE%20DRIVE%20THUMBNAIL.png?raw=true"
           style="width:100px;height:100px;">
           </a>
           <span class="tooltiptext"> Marine Drive </span>
         </li>
         <li class="tooltip">
           <a href="#mosquitoField">
-          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOSQ%20FIELD%20THUMBNAIL.png?raw=true" 
+          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOSQ%20FIELD%20THUMBNAIL.png?raw=true"
           style="width:100px;height:100px;">
           </a>
           <span class="tooltiptext"> Mosquito Field </span>
         </li>
           <li class="tooltip">
           <a href="#MOA">
-          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOA%20GALLERY%20THUMBNAIL.png?raw=true" 
+          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOA%20GALLERY%20THUMBNAIL.png?raw=true"
           style="width:100px;height:100px;">
           </a>
-          <span class="tooltiptext"> Museum of Anthropology </span>  
+          <span class="tooltiptext"> Museum of Anthropology </span>
         </li>
         </ul>
     </div>
@@ -48,7 +48,6 @@
     margin: 0;
   }
 
-/* change font of every element */
    * {
       font-family: courier;
     }
@@ -100,7 +99,7 @@
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
- 
+
     /* Position the tooltip text */
     position: absolute;
     z-index: 1;
@@ -112,30 +111,13 @@
 }
 </style>
 
-
-<script>
-  $(document).ready(function(){
-
-    // console.log('ready');
-    //   $("#OpenContent").css('margin-top', $(window).height() / 2);
-    //   $("#OpenContent").hide();
-    //   $("#OpenContent").fadeIn(1500);
-    //   $("#Pictures").hide();
-    //   $("#vrview").hide();
-    //   $("#SwitchImage").hide();
-    //   $("#OpenContent").click(function(){
-    //       $(this).fadeOut(2000);
-    //       $("#Pictures").fadeIn(2000);
-    //       $("#vrview").fadeIn(2000);
-    //   });
-
-  });
-</script>
-
 <script>
 //Google VR API script to swap out photos
 var vrView;
 var browserHeight = $(window).height();
+var carouselHeight = $('.Gallery').height();
+console.log(carouselHeight);
+console.log(browserHeight);
 // All the scenes for the experience
 var scenes = {
   marineDrive: {
@@ -152,7 +134,7 @@ var scenes = {
 function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
-    height: '100%',
+    height: browserHeight - carouselHeight,
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg',
     is_stereo: false,
     is_autopan_off: true
@@ -195,6 +177,7 @@ function onVRViewReady(e) {
 
     item.addEventListener('click', function(event) {
       event.preventDefault();
+
       loadScene(event.target.parentNode.getAttribute('href').substring(1));
     });
   }
