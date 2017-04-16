@@ -13,22 +13,22 @@
       <ul class="carousel">
         <li class="tooltip">
        <a href="#marineDrive">
-          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MARINE%20DRIVE%20THUMBNAIL.png?raw=true"
-          style="width:100px;height:100px;">
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDriveTumbnail.png"
+          style="width:150px;height:100px;">
           </a>
           <span class="tooltiptext"> Marine Drive </span>
         </li>
         <li class="tooltip">
           <a href="#mosquitoField">
           <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOSQ%20FIELD%20THUMBNAIL.png?raw=true"
-          style="width:100px;height:100px;">
+          style="width:150px;height:100px;">
           </a>
           <span class="tooltiptext"> Mosquito Field </span>
         </li>
           <li class="tooltip">
           <a href="#MOA">
-          <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOA%20GALLERY%20THUMBNAIL.png?raw=true"
-          style="width:100px;height:100px;">
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOAThumbnail.png"
+          style="width:150px;height:100px;">
           </a>
           <span class="tooltiptext"> Museum of Anthropology </span>
         </li>
@@ -39,7 +39,6 @@
 <style>
   html, body {
     height: 100%;
-
   }
 
   body {
@@ -48,9 +47,14 @@
     margin: 0;
   }
 
-   * {
+  * {
       font-family: courier;
-    }
+  }
+
+  .Gallery {
+    text-align: center;
+    height: 100px;
+  }
 
   .Gallery ul {
     display: inline-flex;
@@ -58,16 +62,22 @@
 
   .carousel {
     flex-direction: row;
+    margin: 0;
+    height: 100px;
+  }
+
+  li {
+    padding-left: 3px;
+    padding-right: 3px;
   }
 
   ul.carousel {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
   }
 
-  ul img {
-    display: block;
+  ul.img {
+    display: inline-block;
+
   }
 
   #Pictures {
@@ -79,6 +89,10 @@
   #vrview {
     flex: 1;
   }
+
+  img {
+   border:1px solid whitesmoke;
+ }
 
 /* Tooltip container */
 .tooltip {
@@ -116,12 +130,11 @@
 var vrView;
 var browserHeight = $(window).height();
 var carouselHeight = $('.Gallery').height();
-console.log(carouselHeight);
-console.log(browserHeight);
+console.log(browserHeight - carouselHeight);
 // All the scenes for the experience
 var scenes = {
   marineDrive: {
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg',
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDrive.jpg',
   },
   mosquitoField: {
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Field.jpg',
@@ -135,7 +148,7 @@ function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
     height: browserHeight - carouselHeight,
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/20170310_170708.jpg',
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDrive.jpg',
     is_stereo: false,
     is_autopan_off: true
   });
@@ -193,6 +206,17 @@ function onVRViewError(e) {
 }
 
 window.addEventListener('load', onLoad);
+
+$(function () {
+    $(this).css('border', "solid 1px whitesmoke");
+
+    $('img').click(function() {
+      $('img').css('border', "solid 1px whitesmoke");
+      $(this).css('border', "solid 2px #039ccf");
+  });
+});
+
+
 </script>
 
 </body>
