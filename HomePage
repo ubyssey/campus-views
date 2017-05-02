@@ -11,28 +11,56 @@
     <div id="vrview"> </div>
     <div class="Gallery">
       <ul class="carousel">
-        <li class="tooltip">
+      <li class="tooltip">
        <a href="#marineDrive">
           <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDriveTumbnail.png"
-          style="width:150px;height:100px;">
+          style="width:150px;height:101px;">
           </a>
           <span class="tooltiptext"> Marine Drive </span>
         </li>
         <li class="tooltip">
           <a href="#mosquitoField">
           <img src="https://github.com/ubyssey/campus-views/blob/master/VR_Photos/MOSQ%20FIELD%20THUMBNAIL.png?raw=true"
-          style="width:150px;height:100px;">
+          style="width:150px;height:101px;">
           </a>
           <span class="tooltiptext"> Mosquito Field </span>
         </li>
-          <li class="tooltip">
+        <li class="tooltip">
           <a href="#MOA">
           <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOAThumbnail.png"
-          style="width:150px;height:100px;">
+          style="width:150px;height:101px;">
           </a>
           <span class="tooltiptext"> Museum of Anthropology </span>
         </li>
-        </ul>
+        <li class="tooltip">
+          <a href="#wreckBeach">
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/WreckBeachThumbnail.png"
+          style="width:150px;height:101px;">
+          </a>
+          <span class="tooltiptext"> Wreck Beach </span>
+        </li>
+        <li class="tooltip">
+          <a href="#Nitobe">
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/NitobeThumbnail.png"
+          style="width:150px;height:101px;">
+          </a>
+          <span class="tooltiptext"> Nitobe Garden </span>
+        </li>
+        <li class="tooltip">
+          <a href="#Nest">
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/NestThumbnail.png"
+          style="width:150px;height:101px;">
+          </a>
+          <span class="tooltiptext"> AMS Nest </span>
+        </li>
+        <li class="tooltip">
+          <a href="#TowerStairs">
+          <img src="https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachThumbnail.png"
+          style="width:150px;height:101px;">
+          </a>
+          <span class="tooltiptext"> Tower Beach Stairs </span>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -92,13 +120,13 @@
 
   img {
    border:1px solid whitesmoke;
- }
+  }
 
 /* Tooltip container */
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* dots under the hoverable text */
+    border-bottom: 1px;
 }
 
 /* Tooltip text */
@@ -129,8 +157,8 @@
 //Google VR API script to swap out photos
 var vrView;
 var browserHeight = $(window).height();
-var carouselHeight = $('.Gallery').height();
-console.log(browserHeight - carouselHeight);
+var carouselHeight = $('.carousel').height();
+
 // All the scenes for the experience
 var scenes = {
   marineDrive: {
@@ -141,7 +169,16 @@ var scenes = {
   },
   MOA: {
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOA.jpg',
-  }
+  },
+  wreckBeach: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/WreckBeach.jpg',
+  }, Nest: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Nest.jpg',
+  }, Nitobe: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Nitobe.jpg',
+  }, TowerStairs: {
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachStairs.jpg',
+  },
 };
 
 function onLoad() {
@@ -210,13 +247,19 @@ window.addEventListener('load', onLoad);
 $(function () {
     $(this).css('border', "solid 1px whitesmoke");
 
+    $( window ).resize(function() {
+      var browserHeight = $(window).height();
+      var carouselHeight = $('.carousel').height();
+      $( "#vrview" ).css( {width: '100%',
+      height: browserHeight - 100});
+      console.log("resize occured");
+    });
+
     $('img').click(function() {
       $('img').css('border', "solid 1px whitesmoke");
       $(this).css('border', "solid 2px #039ccf");
   });
 });
-
-
 </script>
 
 </body>
