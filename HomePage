@@ -80,8 +80,11 @@
   }
 
   .Gallery {
+    position: absolute;
     text-align: center;
-    height: 100px;
+    bottom: 25px;
+    left: 0;
+    right: 0;
   }
 
   .Gallery ul {
@@ -105,7 +108,6 @@
 
   ul.img {
     display: inline-block;
-
   }
 
   #Pictures {
@@ -116,6 +118,11 @@
 
   #vrview {
     flex: 1;
+  }
+
+  #vrview iframe {
+    height: 100%;
+    display: block;
   }
 
   img {
@@ -184,7 +191,7 @@ var scenes = {
 function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
-    height: browserHeight - carouselHeight,
+    height: browserHeight,
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDrive.jpg',
     is_stereo: false,
     is_autopan_off: true
@@ -248,11 +255,10 @@ $(function () {
     $(this).css('border', "solid 1px whitesmoke");
 
     $( window ).resize(function() {
-      var browserHeight = $(window).height();
-      var carouselHeight = $('.carousel').height();
+      browserHeight = $(window).height();
+      carouselHeight = $('.carousel').height();
       $( "#vrview" ).css( {width: '100%',
-      height: browserHeight - 100});
-      console.log("resize occured");
+      height: browserHeight});
     });
 
     $('img').click(function() {
