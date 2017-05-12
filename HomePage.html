@@ -111,6 +111,11 @@
     width: 100%;
     height: 100%;
 
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   }
 
   #Pictures {
@@ -132,17 +137,18 @@
   }
 
 /* Tooltip container */
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px;
-}
+  .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px;
+      margin-bottom: 3px;
+  }
 
   /* Tooltip text */
   .tooltiptext {
     visibility: hidden;
     width: 120px;
-    bottom: 100%;
+    bottom: 110px;
     left: 50%;
     margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
     background-color: black;
