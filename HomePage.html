@@ -325,6 +325,10 @@ function onVRViewError(e) {
 
 window.addEventListener('load', onLoad);
 
+$(document).bind("touchmove",function(event){
+  event.preventDefault();
+});
+
 $(function () {
   renderCarousel();
     $( window ).resize(function() {
