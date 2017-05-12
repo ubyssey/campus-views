@@ -260,7 +260,7 @@ function loadScene(id) {
   console.log('loadScene', id);
 
   // Set the image
-  vrView.setContent({
+vrView.setContent({
     image: scenes[id].image,
     //preview: scenes[id].preview,
     is_autopan_off: true
@@ -271,9 +271,11 @@ function mobileResize() {
   var windowWidth = $(window).width();
   console.log(windowWidth + ' = window width');
   if(windowWidth < 800){
-    console.log('this should not print in full screen');
+    var carouselOffset = (thumbnailWidth * activeScene) + (thumbnailWidth / 2);
+    $('ul.carousel').css('margin-left', -carouselOffset);
     $('.Gallery').css('left', '50%');
     $(document).on('click', 'ul.carousel li', function(e) {
+      console.log('this should not print in full screen');
       $('.Gallery').css('left', '50%');
       e.preventDefault();
       var i = $(this).data('i');
@@ -290,6 +292,7 @@ function mobileResize() {
     $('ul.carousel').css('text-align', 'center');
     $('ul.carousel li').css('display', 'inline-block');
     $(document).on('click', 'ul.carousel li', function(e) {
+      console.log('but this should');
       e.preventDefault();
       var i = $(this).data('i');
       activeScene = i;
@@ -315,12 +318,6 @@ function onVRViewError(e) {
 
 window.addEventListener('load', onLoad);
 
-$( window ).resize(function() {
-    console.log("im here");
-    mobileResize();
-});
-
-
 $(function () {
   renderCarousel();
     $( window ).resize(function() {
@@ -328,6 +325,7 @@ $(function () {
       carouselHeight = $('.carousel').height();
       $( "#vrview" ).css( {width: '100%',
       height: browserHeight});
+      mobileResize();
     });
 });
 </script>
