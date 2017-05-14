@@ -6,6 +6,8 @@ var carouselHeight = $('.carousel').height();
 var thumbnailWidth = 150 + 16;
 
 // All the scenes for the experience
+//To add a photo, you must include a title feild, a link to the 360 photo in the
+//image feild, and a thumbnail of the VR Photo
 var scenes = [
   {
     title: 'Marine Drive',
@@ -98,6 +100,7 @@ vrView.setContent({
   });
 }
 
+//Will allow the gallery to slide when the width of the window is less than 800 pixels
 function mobileResize() {
   var windowWidth = $(window).width();
   if(windowWidth < 800){
@@ -146,6 +149,7 @@ function onVRViewError(e) {
 
 window.addEventListener('load', onLoad);
 
+//Will change the carousel's dimensions and the VR view's dimensions when the window is resized
 $(function () {
   renderCarousel();
     $( window ).resize(function() {
