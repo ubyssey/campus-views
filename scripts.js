@@ -1,195 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-</head>
-<body>
-  <div class="wrapper">
-    <div id="header">
-      <div id="header-content">
-          <h1>Views of UBC - <a href="https://www.ubyssey.ca/">The Ubyssey</a></h1>
-      </div>
-    </div>
-    <div id="Pictures">
-      <div id="vrview"> </div>
-      <div class="gallery-container">
-        <div class="Gallery">
-          <ul class="carousel"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
-<style>
-  html, body {
-    height: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .wrapper {
-    max-width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  body {
-    background-color: dimgray;
-    color: whitesmoke;
-    margin: 0;
-  }
-
-  * {
-    font-family: "lft-etica";
-  }
-
-  @font-face {
-    font-family: "left-etica";
-    src: url(lft_etica_book-webfont.woff);
-  }
-
-  #header {
-    background-color: black;
-    /*Opacity start*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    filter: alpha(opacity=80);
-    -moz-opacity: 0.80;
-    -khtml-opacity: 0.8;
-    opacity: 0.8;
-    /*Opacity end*/
-    color: white;
-    position: fixed;
-    z-index: 20;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    padding: 0;
-    margin: 0;
-  }
-  h1 {
-    margin-top: 5px;
-  }
-  a {
-    color: #0071c9;
-  }
-
-  #header #header-content {
-      text-align: center;
-      font-size: 10px;
-      margin-top: 0;
-  }
-
-  .Gallery {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-    bottom: 45px;
-  }
-
-  .Gallery ul {
-    display: inline-flex;
-  }
-
-  .carousel {
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-    height: 100px;
-    transition: margin-left 0.5s;
-  }
-
-  ul.carousel {
-    list-style-type: none;
-  }
-
-  ul.img {
-    display: inline-block;
-  }
-
-  ul.carousel li {
-    position: relative;
-    width: 150px;
-    height: 100px;
-    margin-right: 16px;
-  }
-
-  ul.carousel li img {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 2px;
-
-    cursor: pointer;
-
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  }
-
-  #Pictures {
-    position: fixed;
-    z-index: 10;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #vrview {
-    flex: 1;
-    height: 100%;
-  }
-
-  #vrview iframe {
-    height: 100%;
-    display: block;
-  }
-
-  .gallery-container {
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-/* Tooltip container */
-  .tooltip {
-      position: relative;
-      display: inline-block;
-      border-bottom: 1px;
-      margin-bottom: 3px;
-  }
-
-  /* Tooltip text */
-  .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    bottom: 110px;
-    left: 50%;
-    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-  }
-
-  /* Show the tooltip text when you mouse over the tooltip container */
-  ul.carousel li:hover .tooltiptext,
-  ul.carousel li.current .tooltiptext {
-    visibility: visible;
-  }
-</style>
-
-<script>
 //Google VR API script to swap out photos
 var vrView;
 var browserHeight = $(window).height();
@@ -238,9 +47,7 @@ var scenes = [
 var activeScene = 0;
 
 function renderCarousel() {
-
   var carousel = $('.carousel');
-
   scenes.forEach(function(scene, i) {
 
     var item = $('<li></li>');
@@ -262,11 +69,8 @@ function renderCarousel() {
     }
 
     carousel.append(item);
-
   });
-
   console.log(carousel);
-
 }
 
 function onLoad() {
@@ -352,7 +156,3 @@ $(function () {
       mobileResize();
     });
 });
-</script>
-
-</body>
-</html>
