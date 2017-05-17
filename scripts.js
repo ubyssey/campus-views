@@ -43,6 +43,11 @@ var scenes = [
     title: 'Tower Beach Stairs',
     image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachStairs.jpg',
     thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachThumbnail.png'
+  },
+  {
+    title: 'Pacific Spirit Park',
+    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/PacificSpirit.jpg',
+    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/PacificSpiritThumbnail.png'
   }
 ];
 
