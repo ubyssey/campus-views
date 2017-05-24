@@ -1,53 +1,53 @@
 
-//Google VR API script to swap out photos
+// Google VR API script to swap out photos
 var vrView;
 var browserHeight = $(window).height();
 var carouselHeight = $('.carousel').height();
 var thumbnailWidth = 150 + 16;
 
 // All the scenes for the experience
-//To add a photo, you must include a title feild, a link to the 360 photo in the
-//image feild, and a thumbnail of the VR Photo
+// To add a photo, you must include a title feild, a link to the 360 photo in the
+// image feild, and a thumbnail of the VR Photo
 var scenes = [
   {
     title: 'Marine Drive',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDrive.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDriveTumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MarineDrive.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MarineDriveTumbnail.png'
   },
   {
     title: 'Mosquito Field',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Field.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MosqFeildThumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/Mosquito_Field.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MosqFeildThumbnail.png'
   },
   {
     title: 'Museum of Anthropology',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOA.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOAThumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MOA.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MOAThumbnail.png'
   },
   {
     title: 'Wreck Beach',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/WreckBeach.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/WreckBeachThumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/WreckBeach.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/WreckBeachThumbnail.png'
   },
   {
     title: 'AMS Nest',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Nest.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/NestThumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/Nest.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/NestThumbnail.png'
   },
   {
     title: 'Nitobe Garden',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Nitobe.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/NitobeThumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/Nitobe.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/NitobeThumbnail.png'
   },
   {
     title: 'Tower Beach Stairs',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachStairs.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachThumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/TowerBeachStairs.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/TowerBeachThumbnail.png'
   },
   {
     title: 'Pacific Spirit Park',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/PacificSpirit.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/PacificSpiritThumbnail.png'
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/PacificSpirit.jpg',
+    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/PacificSpiritThumbnail.png'
   }
 ];
 
@@ -84,7 +84,7 @@ function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
     height: browserHeight,
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDrive.jpg',
+    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MarineDrive.jpg',
     is_stereo: false,
     is_autopan_off: true
   });
