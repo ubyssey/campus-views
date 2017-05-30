@@ -1,53 +1,53 @@
 
-//Google VR API script to swap out photos
+// Google VR API script to swap out photos
 var vrView;
 var browserHeight = $(window).height();
 var carouselHeight = $('.carousel').height();
 var thumbnailWidth = 150 + 16;
 
 // All the scenes for the experience
-//To add a photo, you must include a title feild, a link to the 360 photo in the
-//image feild, and a thumbnail of the VR Photo
+// To add a photo, you must include a title feild, a link to the 360 photo in the
+// image feild, and a thumbnail of the VR Photo
 var scenes = [
   {
     title: 'Marine Drive',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDrive.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDriveTumbnail.png'
+    image: 'images/marine-drive.jpg',
+    thumbnail: 'images/marine-drive-thumb.jpg'
   },
   {
     title: 'Mosquito Field',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Mosquito_Field.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MosqFeildThumbnail.png'
+    image: 'images/mosquito-field.jpg',
+    thumbnail: 'images/mosquito-field-thumb.jpg'
   },
   {
     title: 'Museum of Anthropology',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOA.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MOAThumbnail.png'
+    image: 'images/moa.jpg',
+    thumbnail: 'images/moa-thumb.jpg'
   },
   {
     title: 'Wreck Beach',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/WreckBeach.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/WreckBeachThumbnail.png'
+    image: 'images/wreck-beach.jpg',
+    thumbnail: 'images/wreck-beach-thumb.jpg'
   },
   {
     title: 'AMS Nest',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Nest.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/NestThumbnail.png'
+    image: 'images/nest.jpg',
+    thumbnail: 'images/nest-thumb.jpg'
   },
   {
     title: 'Nitobe Garden',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/Nitobe.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/NitobeThumbnail.png'
+    image: 'images/nitobe.jpg',
+    thumbnail: 'images/nitobe-thumb.jpg'
   },
   {
     title: 'Tower Beach Stairs',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachStairs.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/TowerBeachThumbnail.png'
+    image: 'images/tower-beach.jpg',
+    thumbnail: 'images/tower-beach-thumb.jpg'
   },
   {
     title: 'Pacific Spirit Park',
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/PacificSpirit.jpg',
-    thumbnail: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/PacificSpiritThumbnail.png'
+    image: 'images/pacific-spirit.jpg',
+    thumbnail: 'images/pacific-spirit-thumb.jpg'
   }
 ];
 
@@ -77,14 +77,13 @@ function renderCarousel() {
 
     carousel.append(item);
   });
-  console.log(carousel);
 }
 
 function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
     height: browserHeight,
-    image: 'https://raw.githubusercontent.com/ubyssey/campus-views/master/VR_Photos/MarineDrive.jpg',
+    image: 'images/marine-drive.jpg',
     is_stereo: false,
     is_autopan_off: true
   });
@@ -95,8 +94,6 @@ function onLoad() {
 }
 
 function loadScene(id) {
-  console.log('loadScene', id);
-
   // Set the image
 vrView.setContent({
     image: scenes[id].image,
