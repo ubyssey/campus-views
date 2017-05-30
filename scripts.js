@@ -11,43 +11,43 @@ var thumbnailWidth = 150 + 16;
 var scenes = [
   {
     title: 'Marine Drive',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MarineDrive.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MarineDriveTumbnail.png'
+    image: 'images/marine-drive.jpg',
+    thumbnail: 'images/marine-drive-thumb.jpg'
   },
   {
     title: 'Mosquito Field',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/Mosquito_Field.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MosqFeildThumbnail.png'
+    image: 'images/mosquito-field.jpg',
+    thumbnail: 'images/mosquito-field-thumb.jpg'
   },
   {
     title: 'Museum of Anthropology',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MOA.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MOAThumbnail.png'
+    image: 'images/moa.jpg',
+    thumbnail: 'images/moa-thumb.jpg'
   },
   {
     title: 'Wreck Beach',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/WreckBeach.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/WreckBeachThumbnail.png'
+    image: 'images/wreck-beach.jpg',
+    thumbnail: 'images/wreck-beach-thumb.jpg'
   },
   {
     title: 'AMS Nest',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/Nest.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/NestThumbnail.png'
+    image: 'images/nest.jpg',
+    thumbnail: 'images/nest-thumb.jpg'
   },
   {
     title: 'Nitobe Garden',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/Nitobe.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/NitobeThumbnail.png'
+    image: 'images/nitobe.jpg',
+    thumbnail: 'images/nitobe-thumb.jpg'
   },
   {
     title: 'Tower Beach Stairs',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/TowerBeachStairs.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/TowerBeachThumbnail.png'
+    image: 'images/tower-beach.jpg',
+    thumbnail: 'images/tower-beach-thumb.jpg'
   },
   {
     title: 'Pacific Spirit Park',
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/PacificSpirit.jpg',
-    thumbnail: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/PacificSpiritThumbnail.png'
+    image: 'images/pacific-spirit.jpg',
+    thumbnail: 'images/pacific-spirit-thumb.jpg'
   }
 ];
 
@@ -77,14 +77,13 @@ function renderCarousel() {
 
     carousel.append(item);
   });
-  console.log(carousel);
 }
 
 function onLoad() {
   vrView = new VRView.Player('#vrview', {
     width: '100%',
     height: browserHeight,
-    image: 'https://s3-us-west-1.amazonaws.com/ubyssey/media/projects/views-of-ubc/images/MarineDrive.jpg',
+    image: 'images/marine-drive.jpg',
     is_stereo: false,
     is_autopan_off: true
   });
@@ -95,8 +94,6 @@ function onLoad() {
 }
 
 function loadScene(id) {
-  console.log('loadScene', id);
-
   // Set the image
 vrView.setContent({
     image: scenes[id].image,
